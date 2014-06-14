@@ -166,7 +166,7 @@ func ColorFromLoad(load uint) RGB {
 
 	if load > 50 {
 		overhang = load - 50
-		load -= 50
+		load -= overhang
 	}
 
 	multiplier := float64(load)*processorWeight + float64(overhang)*hyperthreadWeight
