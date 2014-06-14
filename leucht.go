@@ -114,7 +114,7 @@ func (c *LoadLoader) fetchLoadGanglia() uint {
 		return 0
 	}
 
-	var hostCPU float64
+	var cpuUsage float64
 	var numNodes uint
 	for _, host := range gangliaData.Cluster.Hosts {
 		if strings.HasPrefix(host.Name, "yashik") {
@@ -130,12 +130,12 @@ func (c *LoadLoader) fetchLoadGanglia() uint {
 					log.Println("Error while parsing", metric.Name, ":", err)
 					continue
 				}
-				hostCPU += val
+				cpuUsage += val
 			}
 		}
 	}
 
-	return uint(hostCPU / float64(numNodes))
+	return uint(cpuUsage / float64(numNodes))
 }
 
 func (c *LoadLoader) fetchLoadWeb() uint {
