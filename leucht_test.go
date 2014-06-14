@@ -15,7 +15,7 @@ func TestColorFromLoad(t *testing.T) {
 	c1 := ColorFromLoad(50)
 
 	// HT load
-	c2 := ColorFromLoad(100)
+	c2 := ColorFromLoad(60)
 
 	if c1.R >= c2.R {
 		t.Fatal("HT load has not or negatively affected load.")
