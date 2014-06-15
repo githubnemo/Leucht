@@ -159,6 +159,11 @@ func (c *LoadLoader) fetchLoadWeb() uint {
 }
 
 func ColorFromLoad(load uint) RGB {
+	// Cap load at 100 as we don't have any representation for more than 100.
+	if load > 100 {
+		load = 100
+	}
+
 	overhang := uint(0)
 
 	processorWeight := 95. / 50
